@@ -1,22 +1,47 @@
 {
     "species": {
-        "regular cat": [1],
-        "feathered cat": [1],
-        "winged cat": [2],
-        "tatzelwurm": [3],
-        "basilisk": [1]
+        "regular cat": [[1], "x_tatzelwurm"],
+        "colourshifter": [[1], "x_tatzelwurm"],
+        "feathered cat": [[1]],
+        "winged cat": [[2]],
+        "tatzelwurm": [[3], "x_regular cat"],
+        "basilisk_f": [[1]],
+        "basilisk_s": [[1]],
     },
-    "ran_weights": [1, 0, 1, 0, 0],
+    "ran_weights": [50, 1, 5, 50, 35, 10, 10],
     "in_weights": {
-        "regular cat/winged cat": [1, 1, 1, 0, 0],
-        "regular cat": [1, 0, 1, 1, 0],
-        "winged cat": [1, 0, 1, 1, 0],
-        "tatzelwurm": [1, 0, 1, 1, 0]
-    },
-    "comment": [
-        "look at the official documentation for a list of all species tags.",
-        "ran_weights are used in species randomization, in_weights are used in inheritance.",
-        "species name before the weights is the parent's species, the weights from both parents are added together.",
-        "all weights follow the order of the species list."
-    ]
+        "regular cat/regular cat": [50, 1, 0, 0, 0, 0, 0],
+        "regular cat/colourshifter": [40, 6, 0, 0, 0, 0, 0],
+        "regular cat/feathered cat": [45, 1, 15, 0, 0, 0, 0],
+        "regular cat/winged cat": [10, 1, 35, 10, 0, 0, 0],
+        "regular cat/basilisk_f": [13, 1, 1, 0, 0, 30, 0],
+        "regular cat/basilisk_s": [13, 1, 1, 0, 0, 5, 25],
+
+        "colourshifter/colourshifter": [35, 16, 0, 0, 0, 0, 0],
+        "colourshifter/feathered cat": [35, 11, 15, 0, 0, 0, 0],
+        "colourshifter/winged cat": [10, 5, 35, 10, 0, 0, 0],
+        "colourshifter/basilisk_f": [10, 4, 1, 0, 0, 30, 0],
+        "colourshifter/basilisk_s": [10, 4, 1, 0, 0, 5, 25],
+
+        "feathered cat/feathered cat": [2, 1, 55, 2, 0, 0, 0],
+        "feathered cat/winged cat": [0, 0, 17, 34, 0, 0, 0],
+        "feathered cat/tatzelwurm": [0, 0, 0, 0, 0, 1, 1],
+        "feathered cat/basilisk_f": [0, 0, 10, 0, 0, 15, 1],
+        "feathered cat/basilisk_s": [0, 0, 10, 0, 0, 3, 13],
+
+        "winged cat/winged cat": [0, 0, 1, 50, 0, 0, 0],
+        "winged cat/tatzelwurm": [0, 0, 0, 0, 0, 1, 1],
+        "winged cat/basilisk_f": [0, 0, 1, 5, 0, 5, 5],
+        "winged cat/basilisk_s": [0, 0, 1, 5, 0, 0, 10],
+
+        "tatzelwurm/tatzelwurm": [0, 0, 0, 0, 1, 0, 0],
+        "tatzelwurm/basilisk_f": [0, 0, 0, 0, 10, 5, 0],
+        "tatzelwurm/basilisk_s": [0, 0, 0, 0, 10, 3, 2],
+
+        "basilisk_f/basilisk_f": [0, 0, 1, 0, 0, 50, 0],
+        "basilisk_f/basilisk_s": [0, 0, 1, 0, 0, 25, 25],
+        "basilisk_s/basilisk_s": [0, 0, 1, 0, 0, 0, 50],
+
+        "blank": [0, 0, 0, 0, 0, 0, 0]
+    }
 }

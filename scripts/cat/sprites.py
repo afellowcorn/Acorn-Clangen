@@ -122,7 +122,7 @@ class Sprites:
                 "secondary",
                 "highlights",
                 "markings",
-                "markings2"
+                "markings2",
                 "eyes",
                 "eyes2",
                 "skin",

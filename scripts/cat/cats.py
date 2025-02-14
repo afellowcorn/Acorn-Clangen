@@ -298,12 +298,7 @@ class Cat:
 
         # sex!?!??!?!?!??!?!?!?!??
         if self.gender is None:
-            if any("always_f" in tag for tag in game.species["species"][self.species]):
-                self.gender = "female"
-            elif any("always_m" in tag for tag in game.species["species"][self.species]):
-                self.gender = "male"
-            else:
-                self.gender = choice(["female", "male"])
+            self.gender = choice(["female", "male"])
 
         """if self.genderalign == "":
             self.genderalign = self.gender"""
@@ -497,25 +492,16 @@ class Cat:
             if not par_species:
                 print("[SPS] Warning - par_species none: species randomized")
                 self.species = choices(species_list, weights=weights, k=1)[0]
-            
-            for s in par_species:
-                # check dom and rec tag
-                if any("dom_inh" in tag for tag in species_dict[s]):
-                    if not any("dom_inh" in tag for tag in species_dict[par_species[par_species.index(s)-1]]):
-                        par_weights = in_weights[s]
-                        break
-                        
-                elif any("rec_inh" in tag for tag in species_dict[s]):
-                    if not any("rec_inh" in tag for tag in species_dict[par_species[par_species.index(s)-1]]):
-                        continue
-                else:
-                    if any("dom_inh" in tag for tag in species_dict[par_species[par_species.index(s)-1]]):
-                        continue
 
-                # get inheritance weights and add them together
-                for x in range(0, len(weights)):
-                    add_weight = in_weights[s]
-                    par_weights[x] += add_weight[x]
+            for s in par_species:
+                tag = f"{s}/{par_species[par_species.index(s)-1]}"
+                if tag in in_weights:
+                    par_weights = in_weights[tag]
+                    print(tag)
+                    print(par_weights)
+
+            if all(val == 0 for val in par_weights):
+                par_weights = in_weights["regular cat/regular cat"]
 
             try:
                 self.species = choices(species_list, weights=par_weights, k=1)[0]

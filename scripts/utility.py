@@ -2722,8 +2722,9 @@ def generate_sprite(
 
     # generating the sprite
     try:
+        from scripts.cat.pelts import Pelt
         # checks index of cat's species in the species list and uses matching folder's sprites
-        n = (game.species["species"][cat.species][0])
+        n = (game.species["species"][cat.species][0][0])
 
         if cat.pelt.name in ["Tortie", "Calico"]:
             peltname = cat.pelt.tortiebase.capitalize()

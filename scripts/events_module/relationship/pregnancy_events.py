@@ -626,7 +626,13 @@ class Pregnancy_Events:
                 and cat.species == second_parent.species
                 )
             ):
-            return False, True
+            return True, True
+
+        if (
+            any(("".join(["x_", second_parent.species])) in tag for tag in species_dict[cat.species])
+            or any(("".join(["x_", cat.species])) in tag for tag in species_dict[second_parent.species])
+            ):
+            return True, True
 
         # Check to see if the pair can have kits.
         if cat.gender == second_parent.gender:

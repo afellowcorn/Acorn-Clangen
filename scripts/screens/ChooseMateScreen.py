@@ -1079,6 +1079,8 @@ class ChooseMateScreen(Screens):
                 any("diff_breed" in tag for tag in self.species_dict[self.selected_cat.species])
                 and self.the_cat.species == self.selected_cat.species
             )
+            or any(("".join(["x_", self.selected_cat.species])) in tag for tag in self.species_dict[self.the_cat.species])
+            or any(("".join(["x_", self.the_cat.species])) in tag for tag in self.species_dict[self.selected_cat.species])
         ):
             warning_rect = ui_scale(pygame.Rect((0, 0), (160, 45)))
             warning_rect.bottomleft = ui_scale_offset((0, -5))
@@ -1226,6 +1228,8 @@ class ChooseMateScreen(Screens):
                     )
                     or self.the_cat.species != i.species
                     )
+                and not any(("".join(["x_", i.species])) in tag for tag in self.species_dict[self.the_cat.species])
+                and not any(("".join(["x_", self.the_cat.species])) in tag for tag in self.species_dict[i.species])
                 or not self.have_kits_only
                 )
         ]
