@@ -31,7 +31,9 @@ def get_data_dir():
 
     from platformdirs import user_data_dir
 
+
     return user_data_dir('ClanGen', 'ClanGen')
+
 
 def get_log_dir():
     return get_data_dir() + "/logs"
