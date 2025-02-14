@@ -348,15 +348,11 @@ class PatrolOutcome:
 
         actual_stat_cats = []
         for kitty in possible_stat_cats:
-
-            print("species: "+kitty.species+" required: "+str(self.stat_species))
             if kitty.species in self.stat_species:
-                print("stat species found")
                 actual_stat_cats.append(kitty)
             else:
                 continue
 
-            print(self.stat_trait)
             if kitty.personality.trait in self.stat_trait:
                 actual_stat_cats.append(kitty)
 

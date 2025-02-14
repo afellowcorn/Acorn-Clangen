@@ -1,14 +1,17 @@
 {
     "species": {
-        "regular cat": [],
-        "winged cat": [],
-        "tatzelwurm": []
+        "regular cat": [1],
+        "feathered cat": [1],
+        "winged cat": [2],
+        "tatzelwurm": [3],
+        "basilisk": [1]
     },
-    "ran_weights": [1, 1, 1],
+    "ran_weights": [1, 0, 1, 0, 0],
     "in_weights": {
-        "regular cat": [1, 1, 1],
-        "winged cat": [1, 1, 1],
-        "tatzelwurm": [1, 1, 1]
+        "regular cat/winged cat": [1, 1, 1, 0, 0],
+        "regular cat": [1, 0, 1, 1, 0],
+        "winged cat": [1, 0, 1, 1, 0],
+        "tatzelwurm": [1, 0, 1, 1, 0]
     },
     "comment": [
         "look at the official documentation for a list of all species tags.",

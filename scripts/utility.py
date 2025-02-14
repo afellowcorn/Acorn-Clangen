@@ -392,16 +392,16 @@ def create_new_cat_block(
     else:
         new_name = choice([True, False])
 
-    '''# SPECIES
+    # SPECIES
     species = None
     for _tag in attribute_list:
         match = re.match(r"species:(.+)", _tag)
         if not match:
             continue
 
-        if match.group(1) in [list(game.species["species"])]:
+        if match.group(1) in (game.species["species"]):
             species = match.group(1)
-            break'''
+            break
 
     # STATUS - must be handled before backstories
     status = None
@@ -2602,9 +2602,7 @@ def generate_sprite(
     # generating the sprite
     try:
         # checks index of cat's species in the species list and uses matching folder's sprites
-        n = (list(game.species["species"]).index(cat.species)) + 1 #add 1 because people don't count from 0 smh
-
-        print(cat.species+" "+cat.pelt.name+" "+cat.pelt.colour)
+        n = (game.species["species"][cat.species][0])
 
         if cat.pelt.name in ["Tortie", "Calico"]:
             peltname = cat.pelt.tortiebase.capitalize()
